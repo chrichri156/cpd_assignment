@@ -29,24 +29,37 @@ while again == "Yes":
     classStudent = input ("Insert your class:")
     email = input ("Insert your email address:")
 
-    print("Hello", firstNameStudent, lastNameStudent, "from", classStudent, ".", "Your email address is:", email)
+    print("Hello " + firstNameStudent + lastNameStudent + ", from " + classStudent + ". Your email address is: " + email + ".")
 
     again = input ("Do you want to change those informations? (Yes/No)")
     
 
 again2= "Yes"
 while again2 == "Yes":
-    presence = input ("Will you be present at the Prom Ball on the 28th of June 2023? (Yes/No)")
-    print("You entered:", presence)
-    if presence = "Yes"
-    guest = input ("Will you be accompanied (maximum 1 guest)? (Yes/No)")
-    print("You entered:", guest)
-    firstNameGuest = input ("If yes, insert your guest’s first name:")
-    lastNameGuest = input ("If yes, insert your guest’s last name:")
+    
+    presence = input ("Will you be present at the Prom Ball on the 28th of June 2023? (Yes/No)") 
+    
+    if presence == "Yes":
+    
+        guest = input ("Will you be accompanied (maximum 1 guest)? (Yes/No)")
+    
+        if guest == "Yes":
+            firstNameGuest = input ("If yes, insert your guest’s first name:")
+            lastNameGuest = input ("If yes, insert your guest’s last name:")
+            print("It's great that you're coming! Your guest is " + firstNameGuest + " " + lastNameGuest)
+            
+        else:
+            print("It's great that you're coming! You have no guest for the moment.")
+            
+            
+    else:
+        print("Too bad... We'll see you another time, then!")
     
 
     again2 = input ("Do you want to change those informations? (Yes/No)")
+    
 
+print("Thank you for answering this formular.")
 
 
 orderamount = input ("The total amount of the order is: ")
