@@ -4,3 +4,49 @@ Idea: For an event (the Prom Ball), form to be filled in by the students. Data r
 | FirstNameStudent | LastNameStudent | Class | Email | Presence | Guest | FirstNameGuest | LastNameGuest | OrderAmount |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Christelle | Jansen | 6T8 | christelle.jansen@hotmail.fr | 1 | 1 | Juliette | Chardon | 50€ |
+
+
+#### Form:
+
+Insert your first name:
+Insert your last name:
+Insert your class:
+Insert your email address:
+
+Will you be present at the Prom Ball on the 28th of June 2023?
+Will you be accompanied (maximum 1 guest)?
+If yes, insert your guest’s first name:
+If yes, insert your guest’s last name:
+
+The total amount of the order is:
+
+#### Form Code
+ 
+again = "Yes"
+while again == "Yes":
+    firstNameStudent = input ("Insert your first name:")
+    lastNameStudent = input ("Insert your last name:")
+    classStudent = input ("Insert your class:")
+    email = input ("Insert your email address:")
+
+    print("Hello", firstNameStudent, lastNameStudent, "from", classStudent, ".", "Your email address is:", email)
+
+    again = input ("Do you want to change those informations? (Yes/No)")
+    
+
+again2= "Yes"
+while again2 == "Yes":
+    presence = input ("Will you be present at the Prom Ball on the 28th of June 2023? (Yes/No)")
+    print("You entered:", presence)
+    if presence = "Yes"
+    guest = input ("Will you be accompanied (maximum 1 guest)? (Yes/No)")
+    print("You entered:", guest)
+    firstNameGuest = input ("If yes, insert your guest’s first name:")
+    lastNameGuest = input ("If yes, insert your guest’s last name:")
+    
+
+    again2 = input ("Do you want to change those informations? (Yes/No)")
+
+
+
+orderamount = input ("The total amount of the order is: ")
