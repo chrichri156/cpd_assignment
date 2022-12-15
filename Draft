@@ -1,0 +1,5 @@
+Idea: For an event (the Prom Ball), form to be filled in by the participants. Data registered in a database table, with an output column for the total amount of the order (nowing 1 entry = 25€)
+
+|FirstNameStudent|LastNameStudent|Class|Email|Presence|Guest|FirstNameGuest|LastNameGuest|OrderAmount
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Christelle | Jansen | 6T8| christelle.jansen@hotmail.fr| 1 | 1 | Juliette | Chardon | 50€
