@@ -75,3 +75,17 @@ while again3 == "Yes":
     again3 = input ("Do you want to change those informations (Yes/No) ? ")
 
 print("Thank you for answering this formular.")
+
+
+
+#### Admin access code
+
+login = input("Enter your login: ")
+password = input("Enter your password: ")
+
+while login != "chrichri156" or password != "password123":
+    print("Either you have made a mistake in your login and/or password, or you do not have access to the admin session.")
+    login = input("Enter your login: ")
+    password = input("Enter your password: ")
+
+print("You are well logged in to the admin account.")
