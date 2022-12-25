@@ -80,12 +80,12 @@ print("Thank you for answering this formular.")
 
 #### Admin login Script
 
-login = input("Enter your login: ")
+username = input("Enter your username: ")
 password = input("Enter your password: ")
 
-while login != "chrichri156" or password != "PassWord123":
-    print("Either you have made a mistake in your login and/or password, or you do not have access to the admin session.")
-    login = input("Enter your login: ")
+while username != "chrichri156" or password != "PassWord123":
+    print("Either you have made a mistake in your username and/or password, or you do not have access to the admin account.")
+    username = input("Enter your username: ")
     password = input("Enter your password: ")
 
-print("You are well logged in to the admin account.")
+print(f" Welcome {username}. You are well logged in to the admin account.")
