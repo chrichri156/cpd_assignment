@@ -20,7 +20,7 @@ If yes, insert your guest’s last name:
 
 The total amount of the order is:
 
-#### Form Code
+#### Form Script
  
 again3 = "Yes"
 while again3 == "Yes":
@@ -78,12 +78,12 @@ print("Thank you for answering this formular.")
 
 
 
-#### Admin access code
+#### Admin login Script
 
 login = input("Enter your login: ")
 password = input("Enter your password: ")
 
-while login != "chrichri156" or password != "password123":
+while login != "chrichri156" or password != "PassWord123":
     print("Either you have made a mistake in your login and/or password, or you do not have access to the admin session.")
     login = input("Enter your login: ")
     password = input("Enter your password: ")
