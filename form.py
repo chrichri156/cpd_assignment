@@ -1,3 +1,6 @@
+import mysql.connector
+
+
 again3 = "Yes"
 while again3 == "Yes":
 
