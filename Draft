@@ -88,4 +88,4 @@ while username != "chrichri156" or password != "PassWord123":
     username = input("Enter your username: ")
     password = input("Enter your password: ")
 
-print(f" Welcome {username}. You are well logged in to the admin account.")
+print(f"Welcome {username}. You are well logged in to the admin account.")
