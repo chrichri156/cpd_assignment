@@ -61,7 +61,7 @@ connection = mysql.connector.connect(
     user="chrichri156",
     password="PassWord123",
     database="Event102"
-    
+)    
     
 cursor = connection.cursor()
 
