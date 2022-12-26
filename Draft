@@ -89,3 +89,43 @@ while username != "chrichri156" or password != "PassWord123":
     password = input("Enter your password: ")
 
 print(f"Welcome {username}. You are well logged in to the admin account.")
+
+
+#### Terminal commands
+
+CREATE USER 'chrichri156'@'cpd3' IDENTIFIED BY 'PassWord123';
+GRANT ALL PRIVILEGES ON *.* TO 'chrichri156'@'cpd3';
+CREATE DATABASE Event102;
+GRANT ALL PRIVILEGES ON Event102.* TO 'chrichri156'@'cpd3';
+FLUSH PRIVILEGES;
+
+
+connection = mysql.connector.connect(
+    host="hostname",
+    user="username",
+    password="password",
+    database="database_name"
+)
+
+CREATE TABLE Attendees_List (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    class VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    presence VARCHAR(255) NOT NULL,
+    guest_first_name VARCHAR(255),
+    guest_last_name VARCHAR(255)
+);
+
+
+sudo cp /etc/letsencrypt/live/cpd3.westeurope.cloudapp.azure.com/cert.pem .
+sudo cp /etc/letsencrypt/live/cpd3.westeurope.cloudapp.azure.com/privkey.pem .
+
+sudo chown `whoami` *.pem
+
+GitHub token: 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
+
+az vm extension set --publisher Microsoft.Azure.DevOps --name VMAccessForLinux --version 1.3 --vm-name cpd3 --resource-group cpd3_group --settings '{"gitHubAuthToken": "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", "gitHubRepoName": "cpd_assignment", "gitHubOrganizationName": "chrichri156"}'
+
+az vm extension show --resource-group cpd3_group --vm-name cpd3 --name VMAccessForLinux --query 'instanceView.extensionInstanceView.substatuses[0].message'
