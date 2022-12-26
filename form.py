@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 again3 = "Yes"
 while again3 == "Yes":
 
@@ -54,3 +53,26 @@ while again3 == "Yes":
     again3 = input ("Do you want to change those informations (Yes/No) ? ")
 
 print("Thank you for answering this formular.")
+
+
+
+connection = mysql.connector.connect(
+    host="cpd3",
+    user="chrichri156",
+    password="PassWord123",
+    database="Event102"
+    
+    
+cursor = connection.cursor()
+
+    
+sql = "INSERT INTO Attendees_List (first_name, last_name, class, email, presence, guest_first_name, guest_last_name) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+values = (firstNameStudent, lastNameStudent, classStudent, email, presence, firstNameGuest, lastNameGuest)
+cursor.execute(sql, values)
+
+    
+connection.commit()
+    
+
+cursor.close()
+connection.close()
