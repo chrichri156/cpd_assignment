@@ -7,4 +7,29 @@
 <body>
   <h1>Event Registration Form</h1>
   <form action="/form.py" method="post">
-    
+    <label for="first_name">First Name:</label><br>
+    <input type="text" id="first_name" name="first_name" required><br>
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" id="last_name" name="last_name" required><br>
+    <label for="class">Class:</label><br>
+    <input type="text" id="class" name="class" required><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    <label for="presence">Will you be present at the Prom Ball on the 28th of June 2023?</label><br>
+    <input type="radio" id="presence_yes" name="presence" value="Yes">
+    <label for="presence_yes">Yes</label>
+    <input type="radio" id="presence_no" name="presence" value="No">
+    <label for="presence_no">No</label><br>
+    <label for="guest">Will you be accompanied (maximum 1 guest)?</label><br>
+    <input type="radio" id="guest_yes" name="guest" value="Yes">
+    <label for="guest_yes">Yes</label>
+    <input type="radio" id="guest_no" name="guest" value="No">
+    <label for="guest_no">No</label><br>
+    <label for="guest_first_name">If yes, insert your guest's first name:</label><br>
+    <input type="text" id="guest_first_name" name="guest_first_name"><br>
+    <label for="guest_last_name">If yes, insert your guest's last name:</label><br>
+    <input type="text" id="guest_last_name" name="guest_last_name"><br>
+    <input type="submit" value="Submit">
+  </form> 
+</body>
+</html>
