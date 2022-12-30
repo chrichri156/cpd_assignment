@@ -55,7 +55,7 @@ while repeat_form == "Yes":
 
 
 
-    if presence == "Yes"
+    if presence == "Yes":
         if guest == "Yes":
          print("The total amount of your order is (25€/pp):", 2*25 , "€")
         
