@@ -55,24 +55,48 @@ while again3 == "Yes":
 print("Thank you for answering this formular.")
 
 
+from flask import Flask, render_template, request
 
-connection = mysql.connector.connect(
-    host="cpd3",
-    user="chrichri156",
-    password="PassWord123",
-    database="Event102"
-)    
+app = Flask(__name__)
+
+
+@app.route('/', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        firstNameStudent = request.form['first_name']
+        lastNameStudent = request.form['last_name']
+        classStudent = request.form['class']
+        email = request.form['email']
+        presence = request.form['presence']
+        firstNameGuest = request.form['guest_first_name']
+        lastNameGuest = request.form['guest_last_name']
+
+        
+        
+        connection = mysql.connector.connect(
+            host="cpd3",
+            user="chrichri156",
+            password="PassWord123",
+            database="Event102"
+        )    
     
-cursor = connection.cursor()
+        cursor = connection.cursor()
 
     
-sql = "INSERT INTO Attendees_List (first_name, last_name, class, email, presence, guest_first_name, guest_last_name) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-values = (firstNameStudent, lastNameStudent, classStudent, email, presence, firstNameGuest, lastNameGuest)
-cursor.execute(sql, values)
+        sql = "INSERT INTO Attendees_List (first_name, last_name, class, email, presence, guest_first_name, guest_last_name) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        values = (firstNameStudent, lastNameStudent, classStudent, email, presence, firstNameGuest, lastNameGuest)
+        cursor.execute(sql, values)
 
     
-connection.commit()
+        connection.commit()
     
 
-cursor.close()
-connection.close()
+        cursor.close()
+        connection.close()
+        
+        return render_template('success.html')
+    
+    
+    
+    else:
+        return render_template('index.html')
