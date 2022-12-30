@@ -2,10 +2,10 @@ import mysql.connector
 
 repeat_form = "Yes"
 while repeat_form == "Yes":
-    student_first_name = request.form['student_first_name']
-    student_last_name = request.form['student_last_name']
-    student_class = request.form['student_class']
-    student_email = request.form['student_email']
+    student_first_name = input("Insert your first name: ")
+    student_last_name = input("Insert your last name: ")
+    student_class = input("Insert your class: ")
+    student_email = input("Insert your email address: ")
 
     print(f"Hello {student_first_name} {student_last_name}, from {student_class}. Your email address is: {student_email}")
 
