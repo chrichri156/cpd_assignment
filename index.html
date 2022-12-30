@@ -6,20 +6,20 @@
 </head>
 <body>
   <h1>Event Registration Form</h1>
-  <form action="/form.py" method="post">
-    <label for="first_name">First Name:</label><br>
-    <input type="text" id="first_name" name="first_name" required><br>
-    <label for="last_name">Last Name:</label><br>
-    <input type="text" id="last_name" name="last_name" required><br>
-    <label for="class">Class:</label><br>
-    <input type="text" id="class" name="class" required><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br>
-    <label for="presence">Will you be present at the Prom Ball on the 28th of June 2023?</label><br>
-    <input type="radio" id="presence_yes" name="presence" value="Yes">
-    <label for="presence_yes">Yes</label>
-    <input type="radio" id="presence_no" name="presence" value="No">
-    <label for="presence_no">No</label><br>
+  <form method="post" action="/">
+    <label for="student_first_name">Insert your first name:</label><br>
+    <input type="text" id="student_first_name" name="student_first_name" required><br>
+    <label for="student_last_name">Insert your last name:</label><br>
+    <input type="text" id="student_last_name" name="student_last_name" required><br>
+    <label for="student_class">Insert your class:</label><br>
+    <input type="text" id="student_class" name="student_class" required><br>
+    <label for="student_email">Insert your email address:</label><br>
+    <input type="student_email" id="student_email" name="student_email" required><br>
+    <label for="student_presence">Will you be present at the Prom Ball on the 28th of June 2023?</label><br>
+    <input type="radio" id="student_presence_yes" name="student_presence" value="Yes">
+    <label for="student_presence_yes">Yes</label>
+    <input type="radio" id="student_presence_no" name="student_presence" value="No">
+    <label for="student_presence_no">No</label><br>
     <label for="guest">Will you be accompanied (maximum 1 guest)?</label><br>
     <input type="radio" id="guest_yes" name="guest" value="Yes">
     <label for="guest_yes">Yes</label>
