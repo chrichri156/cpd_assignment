@@ -2,12 +2,12 @@ import mysql.connector
 
 repeat_form = "Yes"
 while repeat_form == "Yes":
-    firstNameStudent = input ("Insert your first name:")
-    lastNameStudent = input ("Insert your last name:")
-    classStudent = input ("Insert your class:")
-    email = input ("Insert your email address:")
+    student_first_name = request.form['student_first_name']
+    student_last_name = request.form['student_last_name']
+    student_class = request.form['student_class']
+    student_email = request.form['student_email']
 
-    print(f"Hello {firstNameStudent} {lastNameStudent}, from {classStudent}. Your email address is: {email}")
+    print(f"Hello {student_first_name} {student_last_name}, from {student_class}. Your email address is: {student_email}")
 
 
     change_info = input ("Do you want to change those informations (Yes/No) ? ")
@@ -28,8 +28,8 @@ while repeat_form == "Yes":
             guest = input ("Will you be accompanied (maximum 1 guest) (Yes/No) ? ")
         
             if guest == "Yes":
-                guest_firstname = input ("If yes, insert your guest’s first name:")
-                guest_lastname = input ("If yes, insert your guest’s last name:")
+                guest_first_name = request.form['guest_first_name']
+                guest_last_name = request.form['guest_last_name']
         
                 print(f"It's great that you're coming! Your guest is {firstNameGuest} {lastNameGuest}")
             
@@ -57,12 +57,12 @@ while repeat_form == "Yes":
 
     if presence == "Yes":
         if guest == "Yes":
-         print("The total amount of your order is (25€/pp):", 2*25 , "€")
-        
-    elif presence == "Yes" and guest == "No":
-        print("The total amount of your order is (25€/pp):", 1*25, "€")
+            print("The total amount of your order is (25€/pp):", 2*25 , "€")
+        elif guest == "No":
+            print("The total amount of your order is (25€/pp):", 1*25, "€")
+    else:
+        print("You do not need to make any payment.")
     
-    again3 = input ("Do you want to change those informations (Yes/No) ? ")
 
 print("Thank you for answering this formular.")
 
@@ -75,13 +75,13 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def form():
     if request.method == 'POST':
-        firstNameStudent = request.form['first_name']
-        lastNameStudent = request.form['last_name']
-        classStudent = request.form['class']
-        email = request.form['email']
-        presence = request.form['presence']
-        firstNameGuest = request.form['guest_first_name']
-        lastNameGuest = request.form['guest_last_name']
+        student_first_name = request.form['student_first_name']
+        student_last_name = request.form['student_last_name']
+        student_class = request.form['student_class']
+        student_email = request.form['student_email']
+        student_presence = request.form['student_presence']
+        guest_first_name = request.form['guest_first_name']
+        guest_last_name = request.form['guest_last_name']
 
         
         
@@ -95,8 +95,8 @@ def form():
         cursor = connection.cursor()
 
     
-        sql = "INSERT INTO Attendees_List (first_name, last_name, class, email, presence, guest_first_name, guest_last_name) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        values = (firstNameStudent, lastNameStudent, classStudent, email, presence, firstNameGuest, lastNameGuest)
+        sql = "INSERT INTO Attendees_List (student_first_name, student_last_name, student_class, student_email, student_presence, guest_first_name, guest_last_name) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        values = (student_first_name, student_last_name, student_class, student_email, student_presence, guest_first_name, guest_last_name)
         cursor.execute(sql, values)
 
     
