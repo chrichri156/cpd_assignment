@@ -20,7 +20,7 @@ def form():
         
      
         if student_presence == "Yes":
-            if guest == "Yes":
+            if request.form.get('guest_first_name'):
                 guest_first_name = request.form['guest_first_name']
                 guest_last_name = request.form['guest_last_name']
     
@@ -35,14 +35,14 @@ def form():
                 
      
         if student_presence == "Yes":
-            if guest == "Yes":
+            if request.form.get('guest_first_name'):
                 print("The total amount of your order is (25€/pp):", 2*25 , "€")
-            elif guest == "No":
+            else:
                 print("The total amount of your order is (25€/pp):", 1*25, "€")
         else:
             print("You do not need to make any payment.")
         
-        print("Thank you for answering this formular.")
+        print("Thank you for answering this form.")
         
         
         
