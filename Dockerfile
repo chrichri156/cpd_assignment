@@ -3,9 +3,9 @@ FROM python:3.8
 RUN pip install flask
 RUN pip install mysql-connector-python
 WORKDIR /cpd_assignment
-COPY form.py .
-COPY index.html .
-COPY index_style.css .
-COPY success.html .
-COPY success_style.css .
+COPY form.py /cpd_assignment/form.py
+COPY index.html /cpd_assignment/index.html
+COPY index_style.css /cpd_assignment/index_style.css
+COPY success.html /cpd_assignment/success.html
+COPY success_style.css /cpd_assignment/success_style.css
 CMD ["python", "form.py"]
