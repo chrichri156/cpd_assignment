@@ -1,6 +1,6 @@
 FROM python:3.8
 RUN python -m pip install pip==22.3.1
-RUN pip install flask
+RUN pip install flask==2.2.2==8.0.31
 RUN pip install mysql-connector-python
 WORKDIR /cpd_assignment
 COPY form.py /cpd_assignment/form.py
