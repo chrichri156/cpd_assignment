@@ -17,38 +17,22 @@ def form():
 
         print(f"Hello {student_first_name} {student_last_name}, from {student_class}. Your email address is: {student_email}")
         
-        
-        repeat_form = True
-        while repeat_form:
-
-            if student_presence == "Yes":
-
-                if guest == "Yes":
-                    guest_first_name = request.form['guest_first_name']
-                    guest_last_name = request.form['guest_last_name']
+     
+        if student_presence == "Yes":
+            if guest == "Yes":
+                guest_first_name = request.form['guest_first_name']
+                guest_last_name = request.form['guest_last_name']
     
-                    print(f"It's great that you're coming! Your guest is {guest_first_name} {guest_last_name}")
-        
-                else:
-                    print("It's great that you're coming! You have no guest for the moment.")
-            
+                print(f"It's great that you're coming! Your guest is {guest_first_name} {guest_last_name}")
         
             else:
-                print("Too bad... We'll see you another time, then!")
+                print("It's great that you're coming! You have no guest for the moment.")
+            
+        
+        else:
+            print("Too bad... We'll see you another time, then!")
                 
-            repeat_form = True
-            while repeat_form:
-                if change_info == "Yes":
-                    continue
-        
-                elif change_info == "No":
-                    break
-        
-                else:
-                    print("Invalid input. Please enter 'Yes' or 'No'.")
-
-
-
+     
         if student_presence == "Yes":
             if guest == "Yes":
                 print("The total amount of your order is (25€/pp):", 2*25 , "€")
@@ -56,9 +40,10 @@ def form():
                 print("The total amount of your order is (25€/pp):", 1*25, "€")
         else:
             print("You do not need to make any payment.")
-    
-
-print("Thank you for answering this formular.")
+        
+        print("Thank you for answering this formular.")
+        
+        
         
         connection = mysql.connector.connect(
             host="cpd3",
