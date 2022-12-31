@@ -5,7 +5,7 @@ RUN pip install mysql-connector-python
 WORKDIR /app
 COPY form.py .
 COPY index.html templates/index.html
-COPY style.css static/css/style.css
+COPY index_style.css static/css/index_style.css
 COPY success.html /app/success.html
-COPY style2.css /app/style2.css
+COPY success_style.css /app/success_style.css
 CMD ["python", "form.py"]
