@@ -61,8 +61,8 @@ def form():
         cursor = connection.cursor()
 
     
-        sql = "INSERT INTO Attendees_List (student_first_name, student_last_name, student_class, student_email, student_presence, guest_first_name, guest_last_name) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        values = (student_first_name, student_last_name, student_class, student_email, student_presence, guest_first_name, guest_last_name)
+        sql = "INSERT INTO Attendees_List (student_first_name, student_last_name, student_class, student_email, student_presence, guest_first_name, guest_last_name, total_amount) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        values = (student_first_name, student_last_name, student_class, student_email, student_presence, guest_first_name, guest_last_name, total_amount)
         cursor.execute(sql, values)
 
     
