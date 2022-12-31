@@ -15,17 +15,21 @@ def form():
         guest = request.form['guest']
         guest_first_name = request.form['guest_first_name']
         guest_last_name = request.form['guest_last_name']
+        total_amount = request.form['total_amount']
 
         print(f"Hello {student_first_name} {student_last_name}, from {student_class}. Your email address is: {student_email}")
         
      
         if student_presence == "Yes":
-            if request.form.get('guest_first_name'):
+            if request.form.get('guest_first_name') and request.form.get('guest_last_name'):
                 guest_first_name = request.form['guest_first_name']
                 guest_last_name = request.form['guest_last_name']
-    
+            
                 print(f"It's great that you're coming! Your guest is {guest_first_name} {guest_last_name}")
         
+            elif request.form.get('guest_first_name'):
+                return "Error: Please provide a last name for your guest."
+            
             else:
                 print("It's great that you're coming! You have no guest for the moment.")
             
@@ -35,12 +39,13 @@ def form():
                 
      
         if student_presence == "Yes":
-            if request.form.get('guest_first_name'):
-                print("The total amount of your order is (25€/pp):", 2*25 , "€")
+            if request.form.get('guest_first_name') and request.form.get('guest_last_name'):
+                total_amount = 2 * 25
             else:
-                print("The total amount of your order is (25€/pp):", 1*25, "€")
+                total_amount = 1 * 25
+        
         else:
-            print("You do not need to make any payment.")
+            total_amount = 0
         
         print("Thank you for answering this form.")
         
