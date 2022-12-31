@@ -15,7 +15,7 @@ def form():
         guest = request.form['guest']
         guest_first_name = request.form['guest_first_name']
         guest_last_name = request.form['guest_last_name']
-        total_amount = request.form['total_amount']
+        total_amount = 0
 
         print(f"Hello {student_first_name} {student_last_name}, from {student_class}. Your email address is: {student_email}")
         
