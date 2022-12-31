@@ -72,7 +72,7 @@ def form():
         cursor.close()
         connection.close()
         
-        return render_template('success.html')
+        return render_template('success.html', total_amount = total_amount)
     
     
     
