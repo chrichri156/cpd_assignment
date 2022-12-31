@@ -1,4 +1,5 @@
 FROM python:3.8
+RUN python -m pip install --upgrade pip
 RUN pip install flask
 RUN pip install mysql-connector-python
 WORKDIR /cpd_assignment
