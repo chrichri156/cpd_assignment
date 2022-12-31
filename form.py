@@ -12,6 +12,7 @@ def form():
         student_class = request.form['student_class']
         student_email = request.form['student_email']
         student_presence = request.form['student_presence']
+        guest = request.form['guest']
         guest_first_name = request.form['guest_first_name']
         guest_last_name = request.form['guest_last_name']
 
