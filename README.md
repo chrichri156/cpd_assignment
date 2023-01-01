@@ -39,7 +39,7 @@ Moreover, in terms of cloud computing offerings, HoReCa companies should turn to
 
 However, from the cloud-based ERP platform, or if the HoReCa managers want to create their own platform, they should use a PaaS solution (Platform as a Service), such as Microsoft Azure or Google Cloud Platform.
 
-> *Expert Network (to whom the GROWZER team reached out for developing the platform) chose an Microsoft Azure cloud-based solution that would check not only the most important boxes in terms of a wide palette of choices but would also provide solid ground for the support of modern platform architecture. Some core functionalities added include menu engineering, cloud-based purchase order system, centralised ordering, app responsiveness as well as stock management. The app was also designed to be operational on a tablet and to be responsive, meaning that it responds to input promptly, without leaving the users hanging.
+> *Expert Network (to whom the GROWZER team reached out for developing the platform) chose an Microsoft Azure cloud-based solution that would check not only the most important boxes in terms of a wide palette of choices but would also provide solid ground for the support of modern platform architecture. Some core functionalities added include menu engineering, cloud-based purchase order system, centralised ordering, app responsiveness as well as stock management. The app was also designed to be operational on a tablet and to be responsive, meaning that it responds to input promptly, without leaving the users hanging.*
 
 Wildstream (2022). *Expert Network - Growzer* Available from: https://wildstream.be/case/expert-network-growzer/ [accessed on 01 January 2023].
 
@@ -56,26 +56,26 @@ As for the other category, they should turn to SaaS platforms that use a continu
 ### 3. Documentation of Proof-of-Concept Solution
 
 
-For a student event, I wanted to create a Web App to display a form (like a Google form) to be filled in by the students (with the student details, wheter they would be present and have a guest or not, and with the guest details if applicable). If well filled in, the Web App should return the total amount of the order, knowing that 1 entry = 25€.
+For a student event, I wanted to create a Web App to display a form (like a Google form) to be filled in by the students (with the student details, whether they would be present and have a guest or not, and with the guest details if applicable). If well filled in, the Web App should return the total amount of the order, knowing that 1 entry = 25€.
 
 Form example (from a regular user perspective):
 
-Insert your first name:
-Insert your last name:
-Insert your class:
-Insert your email address:
+    Insert your first name:
+    Insert your last name:
+    Insert your class:
+    Insert your email address:
 
-Will you be present at the Prom Ball on the 28th of June 2023?
-Will you be accompanied (maximum 1 guest)?
-If yes, insert your guest’s first name:
-If yes, insert your guest’s last name:
+    Will you be present at the Prom Ball on the 28th of June 2023?
+    Will you be accompanied (maximum 1 guest)?
+    If yes, insert your guest’s first name:
+    If yes, insert your guest’s last name:
 
-The total amount of the order is:
+    The total amount of the order is:
 
 
 The answers should be then stored in a MySQL database table.
 
-Additionnaly, I wanted to display, when entering the Web App, a log-in connection possibility for the event organisators, so that they could see the answers in a table (like an Excel table) and modify it.
+Additionaly, I wanted to display, when entering the Web App, a log-in connection possibility for the event organisers, so that they could see the answers in a table (like an Excel table) and modify it.
 
 The table should look like this:
 
@@ -83,17 +83,17 @@ The table should look like this:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Christelle | Jansen | 6T8 | christelle.jansen@hotmail.fr | 1 | 1 | Juliette | Chardon | 50€ |
 
-The admin login script:
+The admin log-in script:
 
-username = input("Enter your username: ")
-password = input("Enter your password: ")
-
-while username != "chrichri156" or password != "PassWord123":
-    print("Either you have made a mistake in your username and/or password, or you do not have access to the admin account.")
     username = input("Enter your username: ")
     password = input("Enter your password: ")
 
-print(f"Welcome {username}. You are well logged in to the admin account.")
+    while username != "chrichri156" or password != "PassWord123":
+        print("Either you have made a mistake in your username and/or password, or you do not have access to the admin account.")
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+
+    print(f"Welcome {username}. You are well logged in to the admin account.")
 
 
 However, as I struggle with the first goal, I didn't continue this improvement.
@@ -101,140 +101,140 @@ However, as I struggle with the first goal, I didn't continue this improvement.
 
 In order to display the form on the Web App, I created a Virtual Machine with Microsoft Azure ("cpd3" ; "https://cpd3.westeurope.cloudapp.azure.com/"). I connected my VM to my Visual Studio Code terminal using SSH, then I created a Docker repository to host the containers, that I connected with the VM.
 
-I first began with the form.py file, searching for the right way of executing the form and storing the answers in the MySQL table "Attendees_List", in the database "Event102", in the resource group "cpd_assignment". I first wrote a draft of a Python script for the form:
+I first began with the form.py file, searching for the right way of executing the form and storing the answers in the MySQL table "Attendees_List", in the database "Event102", in the resource group "cpd_assignment". I first wrote a simple version of a Python script for the form:
 
 
-again3 = "Yes"
-while again3 == "Yes":
+    again3 = "Yes"
+    while again3 == "Yes":
 
 
-    again1 = "Yes"
-    while again1 == "Yes":
-        firstNameStudent = input ("Insert your first name:")
-        lastNameStudent = input ("Insert your last name:")
-        classStudent = input ("Insert your class:")
-        email = input ("Insert your email address:")
+        again1 = "Yes"
+        while again1 == "Yes":
+            firstNameStudent = input ("Insert your first name:")
+            lastNameStudent = input ("Insert your last name:")
+            classStudent = input ("Insert your class:")
+            email = input ("Insert your email address:")
 
-        print(f"Hello {firstNameStudent} {lastNameStudent}, from {classStudent}. Your email address is: {email}")
+            print(f"Hello {firstNameStudent} {lastNameStudent}, from {classStudent}. Your email address is: {email}")
 
 
-        again1 = input ("Do you want to change those informations (Yes/No) ? ")
+            again1 = input ("Do you want to change those informations (Yes/No) ? ")
     
 
-    again2 = "Yes"
-    while again2 == "Yes":
+        again2 = "Yes"
+        while again2 == "Yes":
     
-        presence = input ("Will you be present at the Prom Ball on the 28th of June 2023? (Yes/No)") 
+            presence = input ("Will you be present at the Prom Ball on the 28th of June 2023? (Yes/No)") 
     
-        if presence == "Yes":
+            if presence == "Yes":
     
-            guest = input ("Will you be accompanied (maximum 1 guest) (Yes/No) ? ")
+                guest = input ("Will you be accompanied (maximum 1 guest) (Yes/No) ? ")
         
-            if guest == "Yes":
+                if guest == "Yes":
     
-                firstNameGuest = input ("If yes, insert your guest’s first name:")
-                lastNameGuest = input ("If yes, insert your guest’s last name:")
+                    firstNameGuest = input ("If yes, insert your guest’s first name:")
+                    lastNameGuest = input ("If yes, insert your guest’s last name:")
         
-                print(f"It's great that you're coming! Your guest is {firstNameGuest} {lastNameGuest}")
+                    print(f"It's great that you're coming! Your guest is {firstNameGuest} {lastNameGuest}")
             
-            else:
-                print("It's great that you're coming! You have no guest for the moment.")
+                else:
+                    print("It's great that you're coming! You have no guest for the moment.")
                 
             
-        else:
-            print("Too bad... We'll see you another time, then!")
+            else:
+                print("Too bad... We'll see you another time, then!")
         
-        again2 = input ("Do you want to change those informations (Yes/No) ? ")
+            again2 = input ("Do you want to change those informations (Yes/No) ? ")
 
 
 
-    if presence == "Yes" and guest == "Yes":
-         print("The total amount of your order is (25€/pp):", 2*25 , "€")
+        if presence == "Yes" and guest == "Yes":
+             print("The total amount of your order is (25€/pp):", 2*25 , "€")
         
-    elif presence == "Yes" and guest == "No":
-        print("The total amount of your order is (25€/pp):", 1*25, "€")
+        elif presence == "Yes" and guest == "No":
+            print("The total amount of your order is (25€/pp):", 1*25, "€")
     
-    again3 = input ("Do you want to change those informations (Yes/No) ? ")
+        again3 = input ("Do you want to change those informations (Yes/No) ? ")
 
-print("Thank you for answering this formular.")
+    print("Thank you for answering this formular.")
+
 
 In the meantime, I installed all the apps and dependencies necessary for my purposes, like Flask, pip, mysql,...
 I also created my user credentials and the table in the MySQL database, using the following command:
 
-CREATE USER 'chrichri156'@'cpd3' IDENTIFIED BY 'PassWord123';
-GRANT ALL PRIVILEGES ON *.* TO 'chrichri156'@'cpd3';
-CREATE DATABASE Event102;
-GRANT ALL PRIVILEGES ON Event102.* TO 'chrichri156'@'cpd3';
-FLUSH PRIVILEGES;
+    CREATE USER 'chrichri156'@'cpd3' IDENTIFIED BY 'PassWord123';
+    GRANT ALL PRIVILEGES ON *.* TO 'chrichri156'@'cpd3';
+    CREATE DATABASE Event102;
+    GRANT ALL PRIVILEGES ON Event102.* TO 'chrichri156'@'cpd3';
+    FLUSH PRIVILEGES;
 
-CREATE TABLE attendees_list (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    student_first_name VARCHAR(255) NOT NULL,
-    student_last_name VARCHAR(255) NOT NULL,
-    student_class VARCHAR(255) NOT NULL,
-    student_email VARCHAR(255) NOT NULL,
-    student_presence VARCHAR(255) NOT NULL,
-    guest_first_name VARCHAR(255),
-    guest_last_name VARCHAR(255),
-    total_amount INT
-);
+    CREATE TABLE attendees_list (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        student_first_name VARCHAR(255) NOT NULL,
+        student_last_name VARCHAR(255) NOT NULL,
+        student_class VARCHAR(255) NOT NULL,
+        student_email VARCHAR(255) NOT NULL,
+        student_presence VARCHAR(255) NOT NULL,
+        guest_first_name VARCHAR(255),
+        guest_last_name VARCHAR(255),
+        total_amount INT
+    );
 
 
-I then created the index.html file, that consists of the structure of the Web App (add a new field to fill in with the name, add two button for "Yes" and "No" answers...). The related file index_style.css hosts the style of the Web App page "index.html" (which color, which alignment...).
-The success.html file was then created, for returning a thanking message and information for the payment. The related file success_style.css file hosts the style of the Web App page "success.html" (which color, which alignment...).
+I then created the index.html file, which consists of the structure of the Web App (add a new field to fill in with the name, add two buttons for "Yes" and "No" answers...). The related file index_style.css hosts the style of the Web App page "index.html" (which colour, which alignment...).
+The success.html file was then created, for returning a thanking message and information for the payment. The related file success_style.css file hosts the style of the Web App page "success.html" (which colour, which alignment...).
 
-I finally created the Dockerfile, that hosts the Docker container and the Docker images. It explains the system what to do: which program to install, which file to search and where, what needs to be done, etc.).
+I finally created the Dockerfile, which hosts the Docker container and the Docker images. It explains the system what to do: which programme to install, which file to search and where, what needs to be done, etc.).
 
 However, after improving little by little all my files, I still can't run the Web App on http://cpd3.westeurope.cloudapp.azure.com
 
-After running in my terminal the command: docker build -t cpd_assignment .
+After running, in my terminal, the command: docker build -t cpd_assignment .
 I get this:
 
 But when I run this: docker run -p 80:3000 cpd_assignment
 Then nothing happened, and I can write something again. And when I check with the "docker ps" command, there is no container at all, actually.
 
 
-chrichri156@cpd3:~/cpd_assignment$ git pull
-Already up to date.
-chrichri156@cpd3:~/cpd_assignment$ docker build -t cpd_assignment .
-Sending build context to Docker daemon  526.3kB
-Step 1/8 : FROM python:3.8-slim
- ---> 61afbf515f15
-Step 2/8 : RUN python -m pip install pip==22.3.1 &&   pip install flask &&   pip install mysql-connector-python
- ---> Using cache
- ---> ea5708a7595a
-Step 3/8 : WORKDIR /cpd_assignment
- ---> Using cache
- ---> f3a60e5b4e8a
-Step 4/8 : COPY . /cpd_assignment
- ---> 7f92b0ff6df3
-Step 5/8 : CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=80"]
- ---> Running in 3c2ae7abb78e
-Removing intermediate container 3c2ae7abb78e
- ---> 9a8aac8c2a5d
-Step 6/8 : EXPOSE 3000
- ---> Running in e88768a39192
-Removing intermediate container e88768a39192
- ---> 3b3756ebd609
-Step 7/8 : ENTRYPOINT ["python", "form.py"]
- ---> Running in f12fdfec0b8c
-Removing intermediate container f12fdfec0b8c
- ---> ca746d8416d4
-Step 8/8 : HEALTHCHECK --interval=30s --timeout=5s CMD ["curl", "-f", "http://cpd3.westeurope.cloudapp.azure.com:80"]
- ---> Running in ecdcbf2a1c23
-Removing intermediate container ecdcbf2a1c23
- ---> 116e8f68fcb6
-Successfully built 116e8f68fcb6
-Successfully tagged cpd_assignment:latest
-chrichri156@cpd3:~/cpd_assignment$ docker run -p 80:3000 cpd_assignment
-chrichri156@cpd3:~/cpd_assignment$ docker run -d -p 80:3000 cpd_assignment
-0ca286e788ed62cb96a1190e4a3fdbe212c1040ba42a44e0577c46d98ccbeb1d
-chrichri156@cpd3:~/cpd_assignment$ sudo systemctl stop apache2
-chrichri156@cpd3:~/cpd_assignment$ docker run -d -p 80:3000 cpd_assignment
-4e5a4b6aa5d946b42d15c11f5aebf9712b019ca88ce417ccb7afdc05d1e24392
-chrichri156@cpd3:~/cpd_assignment$ docker ps
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-chrichri156@cpd3:~/cpd_assignment$
+    chrichri156@cpd3:~/cpd_assignment$ git pull
+    Already up to date.
+    chrichri156@cpd3:~/cpd_assignment$ docker build -t cpd_assignment .
+    Sending build context to Docker daemon  526.3kB
+    Step 1/8 : FROM python:3.8-slim
+     ---> 61afbf515f15
+    Step 2/8 : RUN python -m pip install pip==22.3.1 &&   pip install flask &&   pip install mysql-connector-python
+     ---> Using cache
+     ---> ea5708a7595a
+    Step 3/8 : WORKDIR /cpd_assignment
+     ---> Using cache
+     ---> f3a60e5b4e8a
+    Step 4/8 : COPY . /cpd_assignment
+     ---> 7f92b0ff6df3
+    Step 5/8 : CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=80"]
+     ---> Running in 3c2ae7abb78e
+    Removing intermediate container 3c2ae7abb78e
+     ---> 9a8aac8c2a5d
+    Step 6/8 : EXPOSE 3000
+     ---> Running in e88768a39192
+    Removing intermediate container e88768a39192
+     ---> 3b3756ebd609
+    Step 7/8 : ENTRYPOINT ["python", "form.py"]
+     ---> Running in f12fdfec0b8c
+    Removing intermediate container f12fdfec0b8c
+     ---> ca746d8416d4
+    Step 8/8 : HEALTHCHECK --interval=30s --timeout=5s CMD ["curl", "-f", "http://cpd3.westeurope.cloudapp.azure.com:80"]
+     ---> Running in ecdcbf2a1c23
+    Removing intermediate container ecdcbf2a1c23
+     ---> 116e8f68fcb6
+    Successfully built 116e8f68fcb6
+    Successfully tagged cpd_assignment:latest
+    chrichri156@cpd3:~/cpd_assignment$ docker run -p 80:3000 cpd_assignment
+    chrichri156@cpd3:~/cpd_assignment$
+    chrichri156@cpd3:~/cpd_assignment$ sudo systemctl stop apache2
+    chrichri156@cpd3:~/cpd_assignment$ docker run -d -p 80:3000 cpd_assignment
+    4e5a4b6aa5d946b42d15c11f5aebf9712b019ca88ce417ccb7afdc05d1e24392
+    chrichri156@cpd3:~/cpd_assignment$ docker ps
+    CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+    chrichri156@cpd3:~/cpd_assignment$
 
 
-I tryed multiple things to correct this issue, but I don't understand why it is not running properly. I only know it has something to do with the Dockerfile instructions, and maybe the form.py file. Somehow, the Docker container is not build properly, even if the "docker build" command returned successfully.
+I tried multiple things to correct this issue, but I don't understand why it is not running properly. I only know it has something to do with the Dockerfile instructions, and maybe the form.py file. Somehow, the Docker container is not built properly, even if the "docker build" command returned successfully.
