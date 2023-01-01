@@ -75,12 +75,12 @@ def form():
         cursor.close()
         connection.close()
         
-        return render_template('success.html', total_amount = total_amount)
+        return render_template('templates/success.html', total_amount = total_amount)
     
     
     
     else:
-        return render_template('index.html')
+        return render_template('templates/index.html')
 
     
     
