@@ -101,7 +101,7 @@ However, as I struggle with the first goal, I didn't continue this improvement.
 
 In order to display the form on the Web App, I created a Virtual Machine with Microsoft Azure ("cpd3" ; "https://cpd3.westeurope.cloudapp.azure.com/"). I connected my VM to my Visual Studio Code terminal using SSH, then I created a Docker repository to host the containers, that I connected with the VM.
 
-I first began with the form.py file, searching for the right way of executing the form and storing the answers in the MySQL table "Attendees_List", in the database "Event102", in the resource group "cpd_assignment". I first wrote a simple version of a Python script for the form:
+I first began with the form.py file, searching for the right way of executing the form and storing the answers in the MySQL table "attendees_list", in the database "Event102", in the resource group "cpd_assignment". I first wrote a simple version of a Python script for the form:
 
 
     again3 = "Yes"
