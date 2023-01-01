@@ -39,8 +39,10 @@ Moreover, in terms of cloud computing offerings, HoReCa companies should turn to
 
 However, from the cloud-based ERP platform, or if the HoReCa managers want to create their own platform, they should use a PaaS solution (Platform as a Service), such as Microsoft Azure or Google Cloud Platform.
 
-> *Expert Network (to whom the GROWZER team asked for help in developing the platform) chose an MS Azure Cloud-based solution that would check not only the most important boxes in terms of a wide palette of choices but would also provide solid ground for the support of modern platform architecture. Some core functionalities added include menu engineering, cloud-based purchase order system, centralised ordering, app responsiveness as well as stock management. The app was also designed to be operational on a tablet and to be responsive, meaning that it responds to input promptly, without leaving the users hanging.*
-https://wildstream.be/case/expert-network-growzer/
+> *Expert Network (to whom the GROWZER team reached out for developing the platform) chose an Microsoft Azure cloud-based solution that would check not only the most important boxes in terms of a wide palette of choices but would also provide solid ground for the support of modern platform architecture. Some core functionalities added include menu engineering, cloud-based purchase order system, centralised ordering, app responsiveness as well as stock management. The app was also designed to be operational on a tablet and to be responsive, meaning that it responds to input promptly, without leaving the users hanging.
+
+Wildstream (2022). *Expert Network - Growzer* Available from: https://wildstream.be/case/expert-network-growzer/ [accessed on 01 January 2023].
+
 
 This choice for a PaaS solution allows the company to take advantage of the scalability and reliability of a cloud-based infrastructure, while still being able to customise their ERP platform to meet their specific business needs.
 
@@ -51,4 +53,142 @@ As for the other category, they should turn to SaaS platforms that use a continu
 
 
 
-### 3. Documentation of Proof-of-Concept Solution 
+### 3. Documentation of Proof-of-Concept Solution
+
+
+For a student event, I wanted to create a Web App to display a form (like a Google form) to be filled in by the students (with the student details, wheter they would be present and have a guest or not, and with the guest details if applicable). If well filled in, the Web App should return the total amount of the order, knowing that 1 entry = 25€.
+
+Form example (from a regular user perspective):
+
+Insert your first name:
+Insert your last name:
+Insert your class:
+Insert your email address:
+
+Will you be present at the Prom Ball on the 28th of June 2023?
+Will you be accompanied (maximum 1 guest)?
+If yes, insert your guest’s first name:
+If yes, insert your guest’s last name:
+
+The total amount of the order is:
+
+
+The answers should be then stored in a MySQL database table.
+
+Additionnaly, I wanted to display, when entering the Web App, a log-in connection possibility for the event organisators, so that they could see the answers in a table (like an Excel table) and modify it.
+
+The table should look like this:
+
+| student_first_name | student_last_name | student_class | student_email | student_presence | guest | guest_first_name | guest_last_name | total_amount |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Christelle | Jansen | 6T8 | christelle.jansen@hotmail.fr | 1 | 1 | Juliette | Chardon | 50€ |
+
+The admin login script:
+
+username = input("Enter your username: ")
+password = input("Enter your password: ")
+
+while username != "chrichri156" or password != "PassWord123":
+    print("Either you have made a mistake in your username and/or password, or you do not have access to the admin account.")
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+
+print(f"Welcome {username}. You are well logged in to the admin account.")
+
+
+However, as I struggle with the first goal, I didn't continue this improvement.
+
+
+In order to display the form on the Web App, I created a Virtual Machine with Microsoft Azure ("cpd3" ; "https://cpd3.westeurope.cloudapp.azure.com/"). I connected my VM to my Visual Studio Code terminal using SSH, then I created a Docker repository to host the containers, that I connected with the VM.
+
+I first began with the form.py file, searching for the right way of executing the form and storing the answers in the MySQL table "Attendees_List", in the database "Event102", in the resource group "cpd_assignment". I first wrote a draft of a Python script for the form:
+
+
+again3 = "Yes"
+while again3 == "Yes":
+
+
+    again1 = "Yes"
+    while again1 == "Yes":
+        firstNameStudent = input ("Insert your first name:")
+        lastNameStudent = input ("Insert your last name:")
+        classStudent = input ("Insert your class:")
+        email = input ("Insert your email address:")
+
+        print(f"Hello {firstNameStudent} {lastNameStudent}, from {classStudent}. Your email address is: {email}")
+
+
+        again1 = input ("Do you want to change those informations (Yes/No) ? ")
+    
+
+    again2 = "Yes"
+    while again2 == "Yes":
+    
+        presence = input ("Will you be present at the Prom Ball on the 28th of June 2023? (Yes/No)") 
+    
+        if presence == "Yes":
+    
+            guest = input ("Will you be accompanied (maximum 1 guest) (Yes/No) ? ")
+        
+            if guest == "Yes":
+    
+                firstNameGuest = input ("If yes, insert your guest’s first name:")
+                lastNameGuest = input ("If yes, insert your guest’s last name:")
+        
+                print(f"It's great that you're coming! Your guest is {firstNameGuest} {lastNameGuest}")
+            
+            else:
+                print("It's great that you're coming! You have no guest for the moment.")
+                
+            
+        else:
+            print("Too bad... We'll see you another time, then!")
+        
+        again2 = input ("Do you want to change those informations (Yes/No) ? ")
+
+
+
+    if presence == "Yes" and guest == "Yes":
+         print("The total amount of your order is (25€/pp):", 2*25 , "€")
+        
+    elif presence == "Yes" and guest == "No":
+        print("The total amount of your order is (25€/pp):", 1*25, "€")
+    
+    again3 = input ("Do you want to change those informations (Yes/No) ? ")
+
+print("Thank you for answering this formular.")
+
+In the meantime, I installed all the apps and dependencies necessary for my purposes, like Flask, pip, mysql,...
+I also created my user credentials and the table in the MySQL database, using the following command:
+
+CREATE USER 'chrichri156'@'cpd3' IDENTIFIED BY 'PassWord123';
+GRANT ALL PRIVILEGES ON *.* TO 'chrichri156'@'cpd3';
+CREATE DATABASE Event102;
+GRANT ALL PRIVILEGES ON Event102.* TO 'chrichri156'@'cpd3';
+FLUSH PRIVILEGES;
+
+CREATE TABLE attendees_list (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_first_name VARCHAR(255) NOT NULL,
+    student_last_name VARCHAR(255) NOT NULL,
+    student_class VARCHAR(255) NOT NULL,
+    student_email VARCHAR(255) NOT NULL,
+    student_presence VARCHAR(255) NOT NULL,
+    guest_first_name VARCHAR(255),
+    guest_last_name VARCHAR(255),
+    total_amount INT
+);
+
+
+I then created the index.html file, that consists of the structure of the Web App (add a new field to fill in with the name, add two button for "Yes" and "No" answers...). The related file index_style.css hosts the style of the Web App page "index.html" (which color, which alignment...).
+The success.html file was then created, for returning a thanking message and information for the payment. The related file success_style.css file hosts the style of the Web App page "success.html" (which color, which alignment...).
+
+I finally created the Dockerfile, that hosts the Docker container and the Docker images. It explains the system what to do: which program to install, which file to search and where, what needs to be done, etc.).
+
+However, after improving little by little all my files, I still can't run the Web App on http://cpd3.westeurope.cloudapp.azure.com
+
+After running in my terminal the command: docker build -t cpd_assignment .
+I get this:
+
+But when I run this: docker run -p 80:3000 cpd_assignment
+Then nothing happened, and I can write something again. And when I check with the "docker ps" command, there is no container at all, actually.
