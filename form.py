@@ -1,6 +1,4 @@
 import flask
-print(flask.__version__)
-
 import mysql.connector
 from flask import Flask, render_template, request
 
