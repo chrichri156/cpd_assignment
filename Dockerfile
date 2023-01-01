@@ -1,6 +1,6 @@
 FROM python:3.8-slim
 RUN python -m pip install pip==22.3.1
-COPY ./requirements.txt /cpd_assignment/requirements.txt
+COPY . /requirements.txt /cpd_assignment/requirements.txt
 RUN pip install --upgrade -r requirements.txt
 WORKDIR /cpd_assignment
 COPY . /cpd_assignment
