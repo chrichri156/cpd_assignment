@@ -1,7 +1,7 @@
 FROM python:3.8-slim
-RUN python -m pip install pip==22.3.1
-COPY . /requirements.txt /cpd_assignment/requirements.txt
-RUN pip install --upgrade -r requirements.txt
+RUN python -m pip install pip==22.3.1 && \
+  pip install flask && \
+  pip install mysql-connector-python
 WORKDIR /cpd_assignment
 COPY . /cpd_assignment
 CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=80"]
