@@ -192,3 +192,49 @@ I get this:
 
 But when I run this: docker run -p 80:3000 cpd_assignment
 Then nothing happened, and I can write something again. And when I check with the "docker ps" command, there is no container at all, actually.
+
+
+chrichri156@cpd3:~/cpd_assignment$ git pull
+Already up to date.
+chrichri156@cpd3:~/cpd_assignment$ docker build -t cpd_assignment .
+Sending build context to Docker daemon  526.3kB
+Step 1/8 : FROM python:3.8-slim
+ ---> 61afbf515f15
+Step 2/8 : RUN python -m pip install pip==22.3.1 &&   pip install flask &&   pip install mysql-connector-python
+ ---> Using cache
+ ---> ea5708a7595a
+Step 3/8 : WORKDIR /cpd_assignment
+ ---> Using cache
+ ---> f3a60e5b4e8a
+Step 4/8 : COPY . /cpd_assignment
+ ---> 7f92b0ff6df3
+Step 5/8 : CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=80"]
+ ---> Running in 3c2ae7abb78e
+Removing intermediate container 3c2ae7abb78e
+ ---> 9a8aac8c2a5d
+Step 6/8 : EXPOSE 3000
+ ---> Running in e88768a39192
+Removing intermediate container e88768a39192
+ ---> 3b3756ebd609
+Step 7/8 : ENTRYPOINT ["python", "form.py"]
+ ---> Running in f12fdfec0b8c
+Removing intermediate container f12fdfec0b8c
+ ---> ca746d8416d4
+Step 8/8 : HEALTHCHECK --interval=30s --timeout=5s CMD ["curl", "-f", "http://cpd3.westeurope.cloudapp.azure.com:80"]
+ ---> Running in ecdcbf2a1c23
+Removing intermediate container ecdcbf2a1c23
+ ---> 116e8f68fcb6
+Successfully built 116e8f68fcb6
+Successfully tagged cpd_assignment:latest
+chrichri156@cpd3:~/cpd_assignment$ docker run -p 80:3000 cpd_assignment
+chrichri156@cpd3:~/cpd_assignment$ docker run -d -p 80:3000 cpd_assignment
+0ca286e788ed62cb96a1190e4a3fdbe212c1040ba42a44e0577c46d98ccbeb1d
+chrichri156@cpd3:~/cpd_assignment$ sudo systemctl stop apache2
+chrichri156@cpd3:~/cpd_assignment$ docker run -d -p 80:3000 cpd_assignment
+4e5a4b6aa5d946b42d15c11f5aebf9712b019ca88ce417ccb7afdc05d1e24392
+chrichri156@cpd3:~/cpd_assignment$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+chrichri156@cpd3:~/cpd_assignment$
+
+
+I tryed multiple things to correct this issue, but I don't understand why it is not running properly. I only know it has something to do with the Dockerfile instructions, and maybe the form.py file. Somehow, the Docker container is not build properly, even if the "docker build" command returned successfully.
