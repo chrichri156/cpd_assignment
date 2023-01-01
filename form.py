@@ -53,9 +53,8 @@ def form():
         
         
         connection = mysql.connector.connect(
-            host="cpd3",
-            user="chrichri156",
-            password="PassWord123",
+            user="root",
+            host="localhost",
             database="Event102",
         )    
     
