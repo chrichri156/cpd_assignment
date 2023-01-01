@@ -124,7 +124,6 @@ sudo cp /etc/letsencrypt/live/cpd3.westeurope.cloudapp.azure.com/privkey.pem .
 
 sudo chown `whoami` *.pem
 
-GitHub token: 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
 
 az vm extension set --publisher Microsoft.Azure.DevOps --name VMAccessForLinux --version 1.3 --vm-name cpd3 --resource-group cpd3_group --settings '{"gitHubAuthToken": "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", "gitHubRepoName": "cpd_assignment", "gitHubOrganizationName": "chrichri156"}'
 
