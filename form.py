@@ -57,8 +57,6 @@ def form():
             user="chrichri156",
             password="PassWord123",
             database="Event102",
-            use_sudo=True,
-            sudo_user="root"
         )    
     
         cursor = connection.cursor()
