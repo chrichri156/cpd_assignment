@@ -1,4 +1,4 @@
-<h1 align="center">ASSIGNEMENT - 12/2022</h1>
+<h1 align="center">ASSIGNMENT - 12/2022</h1>
 
 <h3 align="center">B8IS131 - Cloud Platform Development - Paul Laird</h3>
 
