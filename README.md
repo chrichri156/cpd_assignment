@@ -235,6 +235,33 @@ Then nothing happened, and I can write something again. And when I check with th
     chrichri156@cpd3:~/cpd_assignment$ docker ps
     CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
     chrichri156@cpd3:~/cpd_assignment$
-
-
+    
 I tried multiple things to correct this issue, but I don't understand why it is not running properly. I only know it has something to do with the Dockerfile instructions, and maybe the form.py file. Somehow, the Docker container is not built properly, even if the "docker build" command returned successfully.
+
+**UPDATE:**
+
+I found a way to force the building of the Docker container. Now, the first page is well being displayed (the form to fill in), but when clicking on submitting, it leads to an error page.
+
+The problem is that I can't enter MySQL using the command I want in the terminal:
+    
+    mysql -h cpd3 -u chrichri156 -p
+    
+I get an error message:
+    
+    ERROR 2003 (HY000): Can't connect to MySQL server on 'cpd3:3306' (111)
+    
+I succeed this step using either the command:
+    
+    sudo mysql
+
+or
+
+    mysql -h localhost -u chrichri156 -p
+
+However, the same error appears when submitting the form (thus during the step where MySQL is open and where the answers should be stored in the database table).
+
+I checked for various solutions, such as verifying the port, the hostname, the password, the privileges, the firewall or the port allowed in Azure, yet (after some changes), I can't find the solution or understand how I could do.
+
+![Capture d’écran 2023-01-02 023856](https://user-images.githubusercontent.com/114661244/210190238-8d08f25b-6644-42c2-b6cf-1ef4c09663e3.png)
+![Capture d’écran 2023-01-02 024106](https://user-images.githubusercontent.com/114661244/210190244-2039b497-7eb8-4777-9b29-90bc0a4c907a.png)
+![Capture d’écran 2023-01-02 024126](https://user-images.githubusercontent.com/114661244/210190249-5b661e62-dc12-466c-bea5-77ca78132e5e.png)
