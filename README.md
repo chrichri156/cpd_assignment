@@ -267,7 +267,7 @@ I checked for various solutions, such as verifying the port, the hostname, the p
 ![Capture d’écran 2023-01-02 024126](https://user-images.githubusercontent.com/114661244/210190249-5b661e62-dc12-466c-bea5-77ca78132e5e.png)
 
 
-**UPDATE 04/01/2023:** After submitting my assignment, I used a joker and asked a friend to help me find the little problem with the MySQL connection, so now the webpage is actually working!
+**UPDATE 05/01/2023:** After submitting my assignment, I used a joker and asked a friend to help me find the little problem with the MySQL connection, so now the webpage is actually working!
 
 He just changed the bind-address from **"127.0.0.1" to "0.0.0.0"** in the nano environment of MySQL:
 
