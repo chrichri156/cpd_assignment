@@ -8,7 +8,7 @@
 
 ***
 
-### 1. Short background of the enterprise and their requirements for some IT service
+### 1. SHORT BACKGROUND OF THE ENTERPRISE AND THEIR REQUIREMENTS FOR SOME IT SERVICE
 
 
 *Love Is All* is a small Belgian company that manages a restaurant ("*Vertigo*") and a famous cocktail bar ("*Jalousy*") in Brussels. As they are part of the hotel, restaurant and catering sector, there is a significant need for accessing their data very quickly, in order not only to manage real-time orders, but also to manage their inventory, the orders to their suppliers, and their financial results and their profitability.
@@ -17,7 +17,7 @@ Although there is currently a lot of platforms that already help the management 
 
 
 
-### 2. Recommendations for migration of the service to the Cloud
+### 2. RECOMMENDATIONS FOR MIGRATION OF THE SERVICE TO THE CLOUD
 
 
 This central system should be a cloud-based ERP platform (Enterprise Resource Planning), such as Oracle, SAP or Growzer (the one that I use during my internship in their company). Indeed, the characteristics of cloud-based ERP platforms are essential for an efficient support for the management of HoReCa businesses:
@@ -51,9 +51,9 @@ This choice for a PaaS solution allows the company to take advantage of the scal
 Finally, only this last category of client (cloud-based ERP platform builders, or HoReCa managers that want to create their own ERP platform) should use a continuous development strategy, as it refers to a software development approach, that most of the time doesn't concern the HoReCa managers/staff. Continuous development consists of continuously developing and delivering software updates, based on the client/user feedback with identified issues that the development can fix. It also allows organisations to respond more quickly to changing business needs and market conditions.
 As for the other category, they should turn to SaaS platforms that use a continuous development strategy, so that they can easily notify issues and help developers to target client, businesses and market expectations.
 
+---
 
-
-### 3. Documentation of Proof-of-Concept Solution
+### 3. DOCUMENTATION OF PROOF-OF-CONCEPT SOLUTION
 
 
 For a student event, I wanted to create a Web App to display a form (like a Google form) to be filled in by the students (with the student details, whether they would be present and have a guest or not, and with the guest details if applicable). If well filled in, the Web App should return the total amount of the order, knowing that 1 entry = 25€.
@@ -292,22 +292,22 @@ Or also
 
 Therefore, the connection to the database is working well, and the success.html webpage is well displayed when the form is submitted.
 
-**With a guest:**
+***With a guest:***
 
 ![Capture d’écran 2023-01-05 114534](https://user-images.githubusercontent.com/114661244/210762890-e23c0781-5ca0-4f19-99e6-4087e929ba32.png)
 ![Capture d’écran 2023-01-05 114826](https://user-images.githubusercontent.com/114661244/210762901-0a0e2c4d-ec72-4a9a-9e2b-650bdc0091ef.png)
 
-**Without a guest:**
+***Without a guest:***
 
 ![Capture d’écran 2023-01-05 114834](https://user-images.githubusercontent.com/114661244/210762928-4d2588ae-0559-4b2c-a2e0-61f75d41012e.png)
 ![Capture d’écran 2023-01-05 114840](https://user-images.githubusercontent.com/114661244/210762949-8c7fb23a-243f-45db-9083-5df55f145bbb.png)
 
-**Not participating:**
+***Not participating:***
 
 ![Capture d’écran 2023-01-05 114847](https://user-images.githubusercontent.com/114661244/210762963-89bae0b6-773b-44d3-a42d-820c22bccb25.png)
 ![Capture d’écran 2023-01-05 114854](https://user-images.githubusercontent.com/114661244/210762980-aff2e513-c66e-4159-9f39-ceb1e608f1b0.png)
 
-**Now, in the MySQL client:**
+***Now, in the MySQL client:***
 
 ![Capture d’écran 2023-01-05 121853](https://user-images.githubusercontent.com/114661244/210768457-9ab5f068-f37a-4e81-a2c1-758135a23b5e.png)
 ![Capture d’écran 2023-01-05 121900](https://user-images.githubusercontent.com/114661244/210768462-49d8862f-9b62-4ced-b29f-2bd053c834cd.png)
@@ -323,4 +323,4 @@ But this is just a matter of a little bit more time, and I'm glad to finally hav
 
 ---
 
-**Link to the webpage: http://cpd3.westeurope.cloudapp.azure.com**
+***Link to the webpage: http://cpd3.westeurope.cloudapp.azure.com***
