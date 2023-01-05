@@ -278,18 +278,49 @@ He also added the user "chrichri156" with the hostname "%" and the password "Pas
     CREATE USER 'chrichri156'@'%' IDENTIFIED BY 'PassWord123';
     GRANT SELECT, INSERT, DELETE ON *.* TO 'chrichri156'@'%';
     GRANT ALL PRIVILEGES ON *.* TO 'chrichri156'@'%';
-    
-Therefore, the connection to the database is well working, and the success.html webpage is well displayed when the form is submitted.
 
-With a guest:
+Now, I can access the database using either
+    sudo mysql
+
+Or also   
+    mysql -h cpd3 -u chrichri156 -p
+    
+    mysql -h localhost -u chrichri156 -p
+    
+    mysql -u chrichri156 -p
+    
+
+Therefore, the connection to the database is working well, and the success.html webpage is well displayed when the form is submitted.
+
+**With a guest:**
+
 ![Capture d’écran 2023-01-05 114534](https://user-images.githubusercontent.com/114661244/210762890-e23c0781-5ca0-4f19-99e6-4087e929ba32.png)
 ![Capture d’écran 2023-01-05 114826](https://user-images.githubusercontent.com/114661244/210762901-0a0e2c4d-ec72-4a9a-9e2b-650bdc0091ef.png)
 
-Without a guest:
+**Without a guest:**
+
 ![Capture d’écran 2023-01-05 114834](https://user-images.githubusercontent.com/114661244/210762928-4d2588ae-0559-4b2c-a2e0-61f75d41012e.png)
 ![Capture d’écran 2023-01-05 114840](https://user-images.githubusercontent.com/114661244/210762949-8c7fb23a-243f-45db-9083-5df55f145bbb.png)
 
-Not participating:
+**Not participating:**
+
 ![Capture d’écran 2023-01-05 114847](https://user-images.githubusercontent.com/114661244/210762963-89bae0b6-773b-44d3-a42d-820c22bccb25.png)
 ![Capture d’écran 2023-01-05 114854](https://user-images.githubusercontent.com/114661244/210762980-aff2e513-c66e-4159-9f39-ceb1e608f1b0.png)
 
+**Now, in the MySQL client:**
+
+![Capture d’écran 2023-01-05 121853](https://user-images.githubusercontent.com/114661244/210768457-9ab5f068-f37a-4e81-a2c1-758135a23b5e.png)
+![Capture d’écran 2023-01-05 121900](https://user-images.githubusercontent.com/114661244/210768462-49d8862f-9b62-4ced-b29f-2bd053c834cd.png)
+![Capture d’écran 2023-01-05 121906](https://user-images.githubusercontent.com/114661244/210768486-d921be90-536f-42da-9c65-00e4cde67fce.png)
+![Capture d’écran 2023-01-05 121911](https://user-images.githubusercontent.com/114661244/210768503-0ad1eb1e-f583-4be2-9b1f-0f5ac32c6da8.png)
+
+
+The event organisers (admin) could thus see and modify the database in the terminal (creating new "admin" users = other event organisers, add new columns, deleting some, adding new lines, deleting some, changing values, ...)
+
+
+To conclude, the web app and the connection to the database are working well. However, as I couldn't go as far as I wanted (because of the last two issues above) with the structure of the form, the messages returned, etc., there are some parts in the code that aren't used or that don't match with the final form, structure, etc. (ex: the possibility for the users to check and modify their details).
+But this is just a matter of a little bit more time, and I'm glad to finally have succeeded in reaching the actual point/goal!
+
+---
+
+**Link to the webpage: http://cpd3.westeurope.cloudapp.azure.com**
