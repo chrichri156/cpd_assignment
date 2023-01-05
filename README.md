@@ -265,3 +265,15 @@ I checked for various solutions, such as verifying the port, the hostname, the p
 ![Capture d’écran 2023-01-02 023856](https://user-images.githubusercontent.com/114661244/210190238-8d08f25b-6644-42c2-b6cf-1ef4c09663e3.png)
 ![Capture d’écran 2023-01-02 024106](https://user-images.githubusercontent.com/114661244/210190244-2039b497-7eb8-4777-9b29-90bc0a4c907a.png)
 ![Capture d’écran 2023-01-02 024126](https://user-images.githubusercontent.com/114661244/210190249-5b661e62-dc12-466c-bea5-77ca78132e5e.png)
+
+
+**UPDATE 04/01/2023:** After submitting, I used a joker and asked a friend to help me find the little problem with the MySQL connection, so now the webpage is actually working!
+
+He just changed the bind-address from **"127.0.0.1" to "0.0.0.0"** in the nano environment of MySQL:
+
+    sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+    
+He also added the user "chrichri156" with the hostname "%" and the password "PassWord123", and granted all the privileges:
+
+    CREATE USER 'chrichri156'@'%' IDENTIFIED BY 'PassWord123';
+    GRANT SELECT, INSERT, DELETE ON *.* TO 'chrichri156'@'%';
