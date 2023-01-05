@@ -267,7 +267,7 @@ I checked for various solutions, such as verifying the port, the hostname, the p
 ![Capture d’écran 2023-01-02 024126](https://user-images.githubusercontent.com/114661244/210190249-5b661e62-dc12-466c-bea5-77ca78132e5e.png)
 
 
-**UPDATE 04/01/2023:** After submitting, I used a joker and asked a friend to help me find the little problem with the MySQL connection, so now the webpage is actually working!
+**UPDATE 04/01/2023:** After submitting my assignment, I used a joker and asked a friend to help me find the little problem with the MySQL connection, so now the webpage is actually working!
 
 He just changed the bind-address from **"127.0.0.1" to "0.0.0.0"** in the nano environment of MySQL:
 
@@ -277,3 +277,19 @@ He also added the user "chrichri156" with the hostname "%" and the password "Pas
 
     CREATE USER 'chrichri156'@'%' IDENTIFIED BY 'PassWord123';
     GRANT SELECT, INSERT, DELETE ON *.* TO 'chrichri156'@'%';
+    GRANT ALL PRIVILEGES ON *.* TO 'chrichri156'@'%';
+    
+Therefore, the connection to the database is well working, and the success.html webpage is well displayed when the form is submitted.
+
+With a guest:
+![Capture d’écran 2023-01-05 114534](https://user-images.githubusercontent.com/114661244/210762890-e23c0781-5ca0-4f19-99e6-4087e929ba32.png)
+![Capture d’écran 2023-01-05 114826](https://user-images.githubusercontent.com/114661244/210762901-0a0e2c4d-ec72-4a9a-9e2b-650bdc0091ef.png)
+
+Without a guest:
+![Capture d’écran 2023-01-05 114834](https://user-images.githubusercontent.com/114661244/210762928-4d2588ae-0559-4b2c-a2e0-61f75d41012e.png)
+![Capture d’écran 2023-01-05 114840](https://user-images.githubusercontent.com/114661244/210762949-8c7fb23a-243f-45db-9083-5df55f145bbb.png)
+
+Not participating:
+![Capture d’écran 2023-01-05 114847](https://user-images.githubusercontent.com/114661244/210762963-89bae0b6-773b-44d3-a42d-820c22bccb25.png)
+![Capture d’écran 2023-01-05 114854](https://user-images.githubusercontent.com/114661244/210762980-aff2e513-c66e-4159-9f39-ceb1e608f1b0.png)
+
